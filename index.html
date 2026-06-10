@@ -1,250 +1,384 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sugar Bloom Bakery</title>
+<title>Sugar Bakery | Fresh & Delicious</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
 body{
+    background:#f9f9f9;
+    color:#333;
+}
 
-margin:0;
+html{
+    scroll-behavior:smooth;
+}
 
-font-family:Arial,sans-serif;
+/* NAVBAR */
 
-background:#fff8f5;
-
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
 }
 
 nav{
-
-background:#ff7aa2;
-
-padding:15px;
-
-text-align:center;
-
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 20px;
 }
 
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-margin:15px;
-
-font-weight:bold;
-
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#d97706;
 }
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+.cart-btn{
+    background:#d97706;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* HERO */
 
 .hero{
-
-text-align:center;
-
-padding:70px 20px;
-
-background:linear-gradient(#ffd6e7,#fff8f5);
-
+    margin-top:80px;
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#fff;
+    background:
+    linear-gradient(rgba(0,0,0,.5),
+    rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1400&q=80");
+    background-size:cover;
+    background-position:center;
 }
 
-.hero h1{
-
-font-size:55px;
-
-color:#b03060;
-
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
 }
 
-.hero p{
-
-font-size:22px;
-
+.hero-content p{
+    font-size:20px;
+    margin-bottom:30px;
 }
 
-.button{
-
-background:#ff4d6d;
-
-color:white;
-
-padding:12px 25px;
-
-border-radius:25px;
-
-text-decoration:none;
-
-display:inline-block;
-
-margin-top:15px;
-
+.hero-content button{
+    padding:15px 30px;
+    border:none;
+    background:#d97706;
+    color:#fff;
+    font-size:18px;
+    border-radius:8px;
+    cursor:pointer;
 }
+
+/* SECTION */
 
 section{
-
-padding:50px 20px;
-
-text-align:center;
-
+    padding:80px 10%;
 }
 
-.products{
-
-display:flex;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-gap:20px;
-
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
 }
 
-.card{
+.section-title h2{
+    font-size:40px;
+    color:#222;
+}
 
-background:white;
+.section-title p{
+    color:#777;
+    margin-top:10px;
+}
 
-width:220px;
+/* ABOUT */
 
-padding:20px;
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    align-items:center;
+}
 
-border-radius:15px;
+.about img{
+    width:100%;
+    border-radius:15px;
+}
 
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+.about-text h3{
+    font-size:34px;
+    margin-bottom:20px;
+}
 
+.about-text p{
+    line-height:1.8;
+}
+
+/* PRODUCTS */
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.product-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+}
+
+.product-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.product-info{
+    padding:20px;
+}
+
+.product-info h3{
+    margin-bottom:10px;
 }
 
 .price{
-
-color:#ff4d6d;
-
-font-size:22px;
-
-font-weight:bold;
-
+    color:#d97706;
+    font-size:22px;
+    font-weight:bold;
+    margin-bottom:10px;
 }
 
-.review{
-
-background:white;
-
-padding:20px;
-
-margin:15px auto;
-
-max-width:500px;
-
-border-radius:15px;
-
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
-
+.product-info button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#d97706;
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
 }
 
-.contact{
+/* TESTIMONIAL */
 
-background:#ffe4ec;
-
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
 }
+
+.testimonial{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+/* CONTACT */
+
+.contact-container{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:6px;
+}
+
+.contact-form button{
+    padding:12px 30px;
+    border:none;
+    background:#d97706;
+    color:white;
+    cursor:pointer;
+}
+
+/* CART */
+
+.cart{
+    position:fixed;
+    right:-400px;
+    top:0;
+    width:350px;
+    height:100%;
+    background:white;
+    box-shadow:-5px 0 15px rgba(0,0,0,.2);
+    padding:20px;
+    transition:.4s;
+    overflow-y:auto;
+    z-index:2000;
+}
+
+.cart.active{
+    right:0;
+}
+
+.cart h2{
+    margin-bottom:20px;
+}
+
+.cart-item{
+    margin-bottom:15px;
+    padding-bottom:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+.close-cart{
+    background:red;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    margin-bottom:20px;
+    cursor:pointer;
+}
+
+/* FOOTER */
 
 footer{
-
-background:#ff7aa2;
-
-color:white;
-
-padding:20px;
-
-text-align:center;
-
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px;
 }
 
-</style>
+/* RESPONSIVE */
 
+@media(max-width:768px){
+
+.about{
+grid-template-columns:1fr;
+}
+
+.contact-container{
+grid-template-columns:1fr;
+}
+
+.hero-content h1{
+font-size:40px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+</style>
 </head>
 
 <body>
 
+<header>
 <nav>
+<div class="logo">Sugar Bakery</div>
 
-<a href="#">Home</a>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#products">Products</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
-<a href="#">Menu</a>
-
-<a href="#">Reviews</a>
-
-<a href="#">Contact</a>
+<button class="cart-btn" onclick="openCart()">
+Cart (<span id="cartCount">0</span>)
+</button>
 
 </nav>
+</header>
 
-<div class="hero">
+<!-- HERO -->
 
-<h1>🍰 Sugar Bloom Bakery</h1>
+<section class="hero" id="home">
+<div class="hero-content">
+<h1>Freshly Baked Every Morning</h1>
+<p>Premium cupcakes, muffins, croissants, cheesecakes and artisan breads.</p>
+<button onclick="document.getElementById('products').scrollIntoView()">
+Shop Now
+</button>
+</div>
+</section>
 
-<p>Fresh bakes, sweet moments, and happiness in every bite.</p>
+<!-- ABOUT -->
 
-<a class="button" href="#">Order Now</a>
+<section id="about">
 
+<div class="section-title">
+<h2>About Sugar Bakery</h2>
+<p>Handcrafted bakery products made with love.</p>
 </div>
 
-<section>
+<div class="about">
 
-<h2>Our Best Sellers</h2>
+<img src="https://images.unsplash.com/photo-1517433670267-08bbd4be890f?auto=format&fit=crop&w=900&q=80">
 
-<div class="products">
+<div class="about-text">
+<h3>Modern Bakery Experience</h3>
 
-<div class="card">
-
-<h3>🎂 Chocolate Cake</h3>
-
-<p>Rich chocolate cake</p>
-
-<p class="price">Rs. 1500</p>
-
-</div>
-
-<div class="card">
-
-<h3>🍰 Red Velvet Cake</h3>
-
-<p>Soft and creamy</p>
-
-<p class="price">Rs. 1800</p>
-
-</div>
-
-<div class="card">
-
-<h3>🧁 Cupcakes</h3>
-
-<p>Freshly baked daily</p>
-
-<p class="price">Rs. 150</p>
-
-</div>
-
-<div class="card">
-
-<h3>🥐 Croissant</h3>
-
-<p>Buttery and flaky</p>
-
-<p class="price">Rs. 200</p>
-
-</div>
-
-<div class="card">
-
-<h3>🍪 Cookies</h3>
-
-<p>Chocolate chip cookies</p>
-
-<p class="price">Rs. 100</p>
+<p>
+Sugar Bakery creates premium baked goods using
+high-quality ingredients and traditional baking
+methods. Every cupcake, muffin, croissant,
+cheesecake and loaf of bread is prepared fresh
+daily by skilled bakers.
+</p>
 
 </div>
 
@@ -252,60 +386,256 @@ text-align:center;
 
 </section>
 
+<!-- PRODUCTS -->
+
+<section id="products">
+
+<div class="section-title">
+<h2>Our Products</h2>
+<p>Fresh and delicious bakery items.</p>
+</div>
+
+<div class="products-grid">
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1486427944299-d1955d23e34d">
+<div class="product-info">
+<h3>Chocolate Cupcake</h3>
+<p class="price">$4.99</p>
+<button onclick="addToCart('Chocolate Cupcake',4.99)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa">
+<div class="product-info">
+<h3>Blueberry Muffin</h3>
+<p class="price">$3.99</p>
+<button onclick="addToCart('Blueberry Muffin',3.99)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1555507036-ab794f4ade5a">
+<div class="product-info">
+<h3>Butter Croissant</h3>
+<p class="price">$5.49</p>
+<button onclick="addToCart('Butter Croissant',5.49)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad">
+<div class="product-info">
+<h3>Cheesecake</h3>
+<p class="price">$8.99</p>
+<button onclick="addToCart('Cheesecake',8.99)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1509440159596-0249088772ff">
+<div class="product-info">
+<h3>Regular Bread</h3>
+<p class="price">$2.99</p>
+<button onclick="addToCart('Regular Bread',2.99)">
+Add To Cart
+</button>
+</div>
+</div>
+
+<div class="product-card">
+<img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec">
+<div class="product-info">
+<h3>Red Velvet Cupcake</h3>
+<p class="price">$5.99</p>
+<button onclick="addToCart('Red Velvet Cupcake',5.99)">
+Add To Cart
+</button>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
 <section>
 
+<div class="section-title">
 <h2>Customer Reviews</h2>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐<br>
-
-"The cakes are delicious and beautifully decorated!"
-
 </div>
 
-<div class="review">
+<div class="testimonials">
 
-⭐⭐⭐⭐⭐<br>
-
-"Best bakery in Butwal. Fresh every day."
-
+<div class="testimonial">
+<h3>★★★★★</h3>
+<p>
+Best bakery in town. Fresh products every day.
+</p>
 </div>
 
-<div class="review">
+<div class="testimonial">
+<h3>★★★★★</h3>
+<p>
+The cheesecakes are absolutely amazing.
+</p>
+</div>
 
-⭐⭐⭐⭐⭐<br>
-
-"Amazing service and wonderful taste."
+<div class="testimonial">
+<h3>★★★★★</h3>
+<p>
+Excellent customer service and delicious breads.
+</p>
+</div>
 
 </div>
 
 </section>
 
-<section class="contact">
+<!-- CONTACT -->
 
+<section id="contact">
+
+<div class="section-title">
 <h2>Contact Us</h2>
+<p>We would love to hear from you.</p>
+</div>
 
-<p>📍 Butwal, Nepal</p>
+<div class="contact-container">
 
-<p>📞 +977-9857023234</p>
+<div>
+<h3>Bakery Information</h3>
+<br>
+<p>Email: info@sugarbakery.com</p>
+<p>Phone: +977 9800000000</p>
+<p>Address: Kathmandu, Nepal</p>
+</div>
 
-<p>📧 sugarbloombakery@gmail.com</p>
+<form class="contact-form">
 
-<h3>Opening Hours</h3>
+<input type="text" placeholder="Your Name" required>
 
-<p>Sunday - Friday: 8 AM - 8 PM</p>
+<input type="email" placeholder="Email" required>
 
-<p>Saturday: 9 AM - 6 PM</p>
+<textarea rows="6" placeholder="Message"></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
 
 </section>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+<button class="close-cart" onclick="closeCart()">
+Close
+</button>
+
+<h2>Your Cart</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+Total: $<span id="total">0.00</span>
+</div>
+
+</div>
 
 <footer>
 
-❤️ Thank you for visiting Sugar Bloom Bakery ❤️
+<h2>Sugar Bakery</h2>
+
+<br>
+
+<p>
+Freshly baked happiness every day.
+</p>
+
+<br>
+
+<p>
+© 2026 Sugar Bakery. All Rights Reserved.
+</p>
 
 </footer>
 
-</body>
+<script>
 
+let cart = [];
+let total = 0;
+
+function addToCart(name, price){
+
+cart.push({
+name:name,
+price:price
+});
+
+total += price;
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartItems =
+document.getElementById("cartItems");
+
+cartItems.innerHTML = "";
+
+cart.forEach(item => {
+
+const div =
+document.createElement("div");
+
+div.classList.add("cart-item");
+
+div.innerHTML =
+`
+<h4>${item.name}</h4>
+<p>$${item.price.toFixed(2)}</p>
+`;
+
+cartItems.appendChild(div);
+
+});
+
+document.getElementById("total")
+.innerText = total.toFixed(2);
+
+document.getElementById("cartCount")
+.innerText = cart.length;
+
+}
+
+function openCart(){
+document.getElementById("cart")
+.classList.add("active");
+}
+
+function closeCart(){
+document.getElementById("cart")
+.classList.remove("active");
+}
+
+</script>
+
+</body>
 </html>
